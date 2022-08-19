@@ -79,7 +79,7 @@ jobs:
           key: ${{env.SSH_PRIVATE_KEY}}
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
           vault_config: tdv_vault
-          vault_password: foobar
+          vault_password: uUdPrUtn64aJfMSK
           requirements: requirements.yml
           inventory: |
             [all]
