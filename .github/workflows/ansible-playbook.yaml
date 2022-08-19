@@ -54,6 +54,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Check repo
+        run: |
+          ls -al .
       - name: Setup remote
         run: |
           echo "$SSH_PUBLIC_KEY" | sudo tee /etc/ssh/authorized_keys
@@ -93,28 +96,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: With requirements
-        uses: ./
+        uses: ext90021/actions-ansible-playbook@v1
         with:
           playbook: playbook.yml
           directory: test
           requirements: requirements.yml
           options: --inventory hosts
       - name: With requirements bundle
-        uses: ./
+        uses: ext90021/actions-ansible-playbook@v1
         with:
           playbook: playbook.yml
           directory: test
           requirements: requirements-bundle.yml
           options: --inventory hosts
       - name: With vault password
-        uses: ./
+        uses: ext90021/actions-ansible-playbook@v1
         with:
           playbook: playbook.yml
           directory: test
           vault_password: test
           options: --inventory hosts
       - name: With sudo
-        uses: ./
+        uses: ext90021/actions-ansible-playbook@v1
         with:
           playbook: playbook.yml
           directory: test
