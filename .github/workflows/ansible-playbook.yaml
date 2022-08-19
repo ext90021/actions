@@ -72,7 +72,7 @@ jobs:
           echo $(ssh-keyscan localhost) >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: With everything
-        uses: ext90021/actions-ansible-playbook@v6
+        uses: ext90021/actions-ansible-playbook@v7
         with:
           directory: test
           playbook: playbook.yml
