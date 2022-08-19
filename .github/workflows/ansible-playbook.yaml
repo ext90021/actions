@@ -78,6 +78,7 @@ jobs:
           playbook: playbook.yml
           key: ${{env.SSH_PRIVATE_KEY}}
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
+          vault_config: tdv_vault
           vault_password: test
           requirements: requirements.yml
           inventory: |
