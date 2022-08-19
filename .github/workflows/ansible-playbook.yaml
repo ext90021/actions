@@ -84,11 +84,7 @@ jobs:
             [all]
             localhost
           options: |
-            -e docker_image=docker_url
-            -e docker_username=user
             -e docker_password=pass
-            -e db_name=db_name
-            -e db_user=db_user
             -e db_pass=db_pass
   local:
     runs-on: ubuntu-latest
