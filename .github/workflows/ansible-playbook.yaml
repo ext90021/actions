@@ -74,10 +74,10 @@ jobs:
       - name: With everything
         uses: ext90021/actions-ansible-playbook@v1
         with:
-          playbook: test/playbook.yml
+          directory: test
+          playbook: playbook.yml
           key: ${{env.SSH_PRIVATE_KEY}}
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
-          directory: test
           vault_password: test
           requirements: requirements.yml
           inventory: |
