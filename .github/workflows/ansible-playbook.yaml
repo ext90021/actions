@@ -87,6 +87,9 @@ jobs:
           options: |
             -e docker_password=pass
             -e db_pass=db_pass
+      - name: Check repo
+        run: |
+          ls -al test
   local:
     runs-on: ubuntu-latest
     steps:
