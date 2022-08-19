@@ -69,9 +69,9 @@ jobs:
           echo $(ssh-keyscan localhost) >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: With everything
-        uses: ./
+        uses: ./.github/actions/ansible-playbook
         with:
-          playbook: playbook.yml
+          playbook: test/playbook.yml
           key: ${{env.SSH_PRIVATE_KEY}}
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
           directory: test
