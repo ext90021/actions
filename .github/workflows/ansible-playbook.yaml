@@ -78,7 +78,7 @@ jobs:
           playbook: playbook.yml
           key: ${{env.SSH_PRIVATE_KEY}}
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
-          vault_password: test
+          vault_password: foobar
           requirements: requirements.yml
           inventory: |
             [all]
