@@ -90,6 +90,7 @@ jobs:
       - name: Check repo
         run: |
           ls -al test
+          cat test/*
   local:
     runs-on: ubuntu-latest
     steps:
