@@ -90,9 +90,9 @@ jobs:
       - name: Check repo
         run: |
           ls -al test
-          cat .ansible_inventory
-          cat .ansible_vault_password
-          cat tdv_vault
+          cat test/.ansible_inventory
+          cat test/.ansible_vault_password
+          cat test/tdv_vault
   local:
     runs-on: ubuntu-latest
     steps:
