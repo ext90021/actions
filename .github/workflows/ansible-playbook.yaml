@@ -97,29 +97,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: With requirements
+      - name: Local with vault
         uses: ./.github/actions/ansible-playbook
         with:
           playbook: playbook.yml
           directory: test
-          options: --inventory hosts
-      - name: With requirements bundle
-        uses: ./.github/actions/ansible-playbook
-        with:
-          playbook: playbook.yml
-          directory: test
-          options: --inventory hosts
-      - name: With vault password
-        uses: ./.github/actions/ansible-playbook
-        with:
-          playbook: playbook.yml
-          directory: test
+          vault_config: tdv_vault
           vault_password: test
-          options: --inventory hosts
-      - name: With sudo
-        uses: ./.github/actions/ansible-playbook
-        with:
-          playbook: playbook.yml
-          directory: test
-          sudo: true
           options: --inventory hosts
