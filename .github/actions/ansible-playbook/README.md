@@ -27,8 +27,6 @@ Should work on any OS, if `ansible-playbook` command is available in `PATH`.
     known_hosts: .known_hosts
     # Optional, encrypted vault password
     vault_password: ${{secrets.VAULT_PASSWORD}}
-    # Optional, galaxy requirements filepath
-    requirements: galaxy-requirements.yml
     # Optional, additional flags to pass to ansible-playbook
     options: |
       --inventory .hosts

@@ -103,5 +103,5 @@ jobs:
           playbook: playbook.yml
           directory: test
           vault_config: tdv_vault
-          vault_password: test
+          vault_password: uUdPrUtn64aJfMSK
           options: --inventory hosts
