@@ -60,7 +60,7 @@ async function main() {
         }
 
         if (vaultConfig) {
-            cmd.push("-e @"+vaultPasswordFile)
+            cmd.push("-e @"+vaultPconfig)
         }
 
         if (vaultPassword) {
