@@ -60,9 +60,7 @@ async function main() {
         }
 
         if (vaultConfig) {
-            const vaultConfigFile = "tdv_vault"
-            fs.writeFileSync(vaultConfigFile, vaultConfig, { mode: 0600 })
-            core.saveState("vaultConfigFile", vaultConfigFile)
+            cmd.push("-e @"+vaultPasswordFile)
         }
 
         if (vaultPassword) {
