@@ -72,7 +72,7 @@ jobs:
           echo $(ssh-keyscan localhost) >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: With everything
-        uses: ../actions/ansible-playbook
+        uses: ./.github/actions/ansible-playbook
         with:
           directory: test
           playbook: playbook.yml
@@ -99,28 +99,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: With requirements
-        uses: ../actions/ansible-playbook
+        uses: ./.github/actions/ansible-playbook
         with:
           playbook: playbook.yml
           directory: test
           requirements: requirements.yml
           options: --inventory hosts
       - name: With requirements bundle
-        uses: ../actions/ansible-playbook
+        uses: ./.github/actions/ansible-playbook
         with:
           playbook: playbook.yml
           directory: test
           requirements: requirements-bundle.yml
           options: --inventory hosts
       - name: With vault password
-        uses: ../actions/ansible-playbook
+        uses: ./.github/actions/ansible-playbook
         with:
           playbook: playbook.yml
           directory: test
           vault_password: test
           options: --inventory hosts
       - name: With sudo
-        uses: ../actions/ansible-playbook
+        uses: ./.github/actions/ansible-playbook
         with:
           playbook: playbook.yml
           directory: test
