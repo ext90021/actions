@@ -7,9 +7,6 @@ inputs:
   playbook:
     description: Ansible playbook filepath
     required: true
-  requirements:
-    description: Ansible Galaxy requirements filepath
-    required: false
   directory:
     description: Root directory of Ansible project (defaults to current)
     required: false
@@ -30,12 +27,6 @@ inputs:
     required: false
   options:
     description: Extra options that should be passed to ansible-playbook command
-    required: false
-  sudo:
-    description: Set to "true" if root is required for running your playbook
-    required: false
-  no_color:
-    description: Set to "true" if the Ansible output should not include colors (defaults to "false")
     required: false
 outputs:
   output:
