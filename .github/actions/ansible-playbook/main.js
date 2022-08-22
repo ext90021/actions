@@ -35,8 +35,12 @@ async function main() {
         }
 
         if (inventory) {
-            const inventoryFile = ".ansible_inventory"
-            fs.writeFileSync(inventoryFile, inventory, { mode: 0600 })
+            const inventoryFile = "ansible_inventory"
+            fs.copyFile(inventory, inventoryFile, fs.constants.COPYFILE_EXCL, (err) => {
+              if (err) {
+                console.log("Error Found:", err);
+              }
+            })          
             core.saveState("inventoryFile", inventoryFile)
             cmd.push("--inventory-file")
             cmd.push(inventoryFile)
