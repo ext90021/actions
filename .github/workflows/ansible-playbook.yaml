@@ -68,11 +68,11 @@ jobs:
           echo 'SSH_KNOWN_HOSTS<<EOF' >> $GITHUB_ENV
           echo $(ssh-keyscan localhost) >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
-      - name: With everything
+      - name: TDV Provision
         uses: ./.github/actions/ansible-playbook
         with:
-          directory: test
-          playbook: playbook.yml
+          directory: tdv
+          playbook: tdv.yml
           key: ${{env.SSH_PRIVATE_KEY}}
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
           vault_config: tdv_vault
@@ -80,20 +80,3 @@ jobs:
           inventory: |
             [all]
             localhost
-      - name: Check directory
-        run: |
-          ls -al test
-          cat test/ansible_vault
-  local:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Local with vault
-        uses: ./.github/actions/ansible-playbook
-        with:
-          playbook: playbook.yml
-          directory: test
-          vault_config: tdv_vault
-          vault_password: uUdPrUtn64aJfMSK
-          options: --inventory hosts
