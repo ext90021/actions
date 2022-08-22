@@ -54,9 +54,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Check repo
-        run: |
-          ls -al test
       - name: Setup remote
         run: |
           echo "$SSH_PUBLIC_KEY" | sudo tee /etc/ssh/authorized_keys
@@ -83,15 +80,6 @@ jobs:
           inventory: |
             [all]
             localhost
-          options: |
-            -e docker_password=pass
-            -e db_pass=db_pass
-      - name: Check repo
-        run: |
-          ls -al test
-          cat test/.ansible_inventory
-          cat test/.ansible_vault_password
-          cat test/tdv_vault
   local:
     runs-on: ubuntu-latest
     steps:

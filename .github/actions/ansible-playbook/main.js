@@ -43,7 +43,10 @@ async function main() {
         }
 
         if (vaultConfig) {
-            cmd.push("-e @"+vaultConfig)
+            const vaultConfigFile = ".ansible_vault"
+            fs.writeFileSync(vaultConfigFile, vaultConfig, { mode: 0600 })
+            core.saveState("vaultConfigFile", vaultConfigFile)
+            cmd.push("-e @"+vaultConfigFile)
         }
 
         if (vaultPassword) {
