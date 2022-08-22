@@ -82,8 +82,8 @@ jobs:
             localhost
       - name: Check directory
         run: |
-          ls -al
-          cat ansible_vault
+          ls -al test
+          cat test/ansible_vault
   local:
     runs-on: ubuntu-latest
     steps:
