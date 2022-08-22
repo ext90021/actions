@@ -28,7 +28,11 @@ async function main() {
 
         if (key) {
             const keyFile = ".ansible_key"
-            fs.writeFileSync(keyFile, key + os.EOL, { mode: 0600 })
+            fs.copyFile(key, keyFile, fs.constants.COPYFILE_EXCL, (err) => {
+              if (err) {
+                console.log("Error Found:", err);
+              }
+            })          
             core.saveState("keyFile", keyFile)
             cmd.push("--key-file")
             cmd.push(keyFile)
