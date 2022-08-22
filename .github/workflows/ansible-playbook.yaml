@@ -80,6 +80,10 @@ jobs:
           inventory: |
             [all]
             localhost
+      - name: Check directory
+        run: |
+          ls -al
+          cat ansible_vault
   local:
     runs-on: ubuntu-latest
     steps:
