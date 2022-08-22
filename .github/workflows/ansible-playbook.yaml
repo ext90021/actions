@@ -78,3 +78,5 @@ jobs:
           vault_config: tdv_vault
           vault_password: uUdPrUtn64aJfMSK
           inventory: tdv.ini
+          options: |
+            --verbose
