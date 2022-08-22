@@ -32,6 +32,14 @@ async function main() {
               if (err) {
                 console.log("Error Found:", err);
               }
+              else {
+                try {
+                  const fd = fs.openSync(keyFile, "r");
+                  fs.fchmodSync(fd, 0o600);
+                } catch (error) {
+                  console.log(error);
+                }
+              }
             })          
             core.saveState("keyFile", keyFile)
             cmd.push("--key-file")
