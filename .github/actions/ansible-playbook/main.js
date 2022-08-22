@@ -44,7 +44,7 @@ async function main() {
 
         if (vaultConfig) {
             const vaultConfigFile = "ansible_vault"
-            fs.writeFileSync(vaultConfigFile, vaultConfig, { mode: 0600 })
+            fs.copyFile(vaultConfigFile, vaultConfig, { mode: 0600 })
             core.saveState("vaultConfigFile", vaultConfigFile)
             cmd.push("-e @"+vaultConfig)
         }
