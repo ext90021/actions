@@ -50,7 +50,7 @@ async function main() {
               }
             })
             core.saveState("vaultConfigFile", vaultConfigFile)
-            cmd.push("-e @"+vaultConfig)
+            cmd.push("-e @"+vaultConfigFile)
         }
 
         if (vaultPassword) {
