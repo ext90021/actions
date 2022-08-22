@@ -44,7 +44,7 @@ async function main() {
 
         if (vaultConfig) {
             const vaultConfigFile = "ansible_vault"
-            fs.copyFile(vaultConfigFile, vaultConfig, fs.constants.COPYFILE_EXCL, (err) => {
+            fs.copyFile(vaultConfig, vaultConfigFile, fs.constants.COPYFILE_EXCL, (err) => {
               if (err) {
                 console.log("Error Found:", err);
               }
