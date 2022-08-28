@@ -39,5 +39,5 @@ jobs:
           vault_config: tdv_vault
           vault_password: uUdPrUtn64aJfMSK
           options: |
-            --inventory localhost
+            --inventory localhost,
             --verbose
