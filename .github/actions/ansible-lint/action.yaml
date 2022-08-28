@@ -1,0 +1,27 @@
+name: Ansible lint
+description: Run Ansible Lint
+author: Allianz Technology AS
+branding:
+  icon: shield
+  color: red
+inputs:
+  path:
+    description: >
+      Specific path to lint instead of the default `.`. Multiple arguments are
+      not supported and you will need to alter linter configuration to
+      accommodate other use cases.
+    required: false
+    # That default is just a placeholder workaround for no arguments use-case
+    # Feeding "." or empty string to ansible-lint makes it believe it is a role
+    default: --show-relpath
+runs:
+  using: docker
+  image: docker://quay.io/ansible/creator-ee:v0.6.0
+  entrypoint: /usr/local/bin/ansible-lint
+  env:
+    # These tell ansible-lint to use github compatible annotation format:
+    GITHUB_ACTIONS: "true"
+    GITHUB_WORKFLOW: "{{ github.workflow.name }}"
+  args:
+    - -vvv
+    - ${{ inputs.path }}
