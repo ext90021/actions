@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: Install cowsay
-      become: yes
+      become: true
       apt:
         name: cowsay
-        update_cache: yes
+        update_cache: true
