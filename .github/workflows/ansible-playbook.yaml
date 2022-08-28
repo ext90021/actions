@@ -15,6 +15,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        
+      - name: Run ansible-lint
+        uses: ./.github/actions/ansible-lint
+        with:
+          path: "tdv/"
+        
       - name: Setup remote
         run: |
           echo "$SSH_PUBLIC_KEY" | sudo tee /etc/ssh/authorized_keys
