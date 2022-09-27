@@ -34,13 +34,12 @@ jobs:
       - name: TDV Provision
         uses: ./.github/actions/ansible-playbook
         with:
-          directory: tdv
-          playbook: tdv.yml
-          key: tdv_key.pem
+          playbook: tdv/tdv.yml
+          key: tdv/tdv_key.pem
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
-          vault_config: tdv_vault
+          vault_config: tdv/tdv_vault
           vault_password: uUdPrUtn64aJfMSK
-          inventory: tdv.ini
+          inventory: tdv/tdv.ini
           files: |
             files/tls.crt
             files/tls_priv.pem
