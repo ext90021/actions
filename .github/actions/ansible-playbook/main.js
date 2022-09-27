@@ -26,7 +26,7 @@ async function main() {
             f = files.split('\n');
             for (var i = 0; i < f.length; i++) {
               console.log(path.basename(f[i]))
-              fs.copyFile(f[i], "tdv/"+f[i], fs.constants.COPYFILE_EXCL, (err) => {
+              fs.copyFile(f[i], "tdv/files"+path.basename(f[i]), fs.constants.COPYFILE_EXCL, (err) => {
                 if (err) {
                   console.log("Error Found:", err);
                 }
