@@ -42,10 +42,7 @@ jobs:
           vault_password: uUdPrUtn64aJfMSK
           inventory: tdv.ini
           files: |
-            tls.crt
-            tls_priv.pem
-            aaaa
-            dddd
-            fffffffff1212
+            files/tls.crt
+            files/tls_priv.pem
           options: |
             --verbose
