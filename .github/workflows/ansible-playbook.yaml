@@ -49,4 +49,5 @@ jobs:
 
       - name: Test files
         run: |
-          ls -al
+          ls -al files
+          ls -al tdv
