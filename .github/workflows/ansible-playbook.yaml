@@ -46,3 +46,7 @@ jobs:
             files/tls_priv.pem
           options: |
             --verbose
+
+      - name: Test files
+        run: |
+          ls -al tdv/files
