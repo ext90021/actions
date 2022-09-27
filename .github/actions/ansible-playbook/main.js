@@ -3,6 +3,7 @@ const exec = require('@actions/exec')
 const yaml = require('yaml')
 const fs = require('fs')
 const os = require('os')
+const path = require('path')
 
 async function main() {
     try {
