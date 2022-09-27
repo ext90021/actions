@@ -49,4 +49,4 @@ jobs:
 
       - name: Test files
         run: |
-          ls -al tdv/files
+          ls -al
