@@ -44,5 +44,8 @@ jobs:
           files: |
             tls.crt
             tls_priv.pem
+            aaaa
+            dddd
+            fffffffff1212
           options: |
             --verbose
