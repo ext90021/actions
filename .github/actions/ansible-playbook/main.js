@@ -7,7 +7,6 @@ const os = require('os')
 async function main() {
     try {
         const playbook = core.getInput("playbook", { required: true })
-        const directory = core.getInput("directory")
         const key = core.getInput("key")
         const inventory = core.getInput("inventory")
         const vaultConfig = core.getInput("vault_config")
@@ -22,14 +21,10 @@ async function main() {
             cmd.push(options.replace(/\n/g, " "))
         }
 
-        if (directory) {
-            process.chdir(directory)
-            core.saveState("directory", directory)
-        }
-
         if (files) {
             f = files.split('\n');
             for (var i = 0; i < f.length; i++) {
+              console.log(path.filename(f[i]))
               fs.copyFile(f[i], "tdv/"+f[i], fs.constants.COPYFILE_EXCL, (err) => {
                 if (err) {
                   console.log("Error Found:", err);
