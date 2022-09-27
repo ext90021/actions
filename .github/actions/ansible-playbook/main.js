@@ -13,6 +13,7 @@ async function main() {
         const vaultConfig = core.getInput("vault_config")
         const vaultPassword = core.getInput("vault_password")
         const knownHosts = core.getInput("known_hosts")
+        const files = core.getInput("files")
         const options = core.getInput("options")
 
         let cmd = ["ansible-playbook", playbook]
@@ -24,6 +25,13 @@ async function main() {
         if (directory) {
             process.chdir(directory)
             core.saveState("directory", directory)
+        }
+
+        if (files) {
+            f = files.split('\n');
+            for (var i = 0; i < f.length; i++) {
+                console.log(f[i]);
+            }
         }
 
         if (key) {
