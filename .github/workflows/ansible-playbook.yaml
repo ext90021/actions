@@ -42,7 +42,7 @@ jobs:
           inventory: tdv/tdv.ini
           files: |
             files/tls.crt
-            files/tls_priv.pem
+            files/tls.priv.pem
           options: |
             --verbose
 
