@@ -50,4 +50,4 @@ jobs:
       - name: Test files
         run: |
           ls -al files
-          ls -al tdv
+          ls -al tdv/files
