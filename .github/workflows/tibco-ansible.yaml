@@ -41,4 +41,4 @@ jobs:
           path: /tmp
 
       - name: Check for vulnerabilities
-        run: trivy image --no-progress --exit-code 1 --severity CRITICAL -i /tmp/tibco-build.tar
+        run: trivy image --no-progress --exit-code 1 --severity CRITICAL --input /tmp/tibco-build.tar
