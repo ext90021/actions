@@ -1,10 +1,10 @@
-FROM alpine:3.15.4
+FROM alpine:3.16.2
 
 LABEL maintainer="GDP <A-GDP-SERVICES@inside.allianz.de>"
-LABEL name="Tibco build image"
+LABEL name="GDP Ansible image"
 LABEL vendor="Allianz Technology SE"
 
-RUN echo "install Ansible" && \
+RUN echo "Install Ansible" && \
     apk add ansible jq git openssh bash && \
     ansible-galaxy collection install ansible.posix community.general && \
     rm -rf /var/cache/apk/*
