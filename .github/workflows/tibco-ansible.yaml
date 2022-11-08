@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: gdp-ansible
+  IMAGE_NAME: ext90021/gdp-ansible
   DOCKER_USERNAME: ext90021
   DOCKER_PASSWORD: Cas1opea!
 
