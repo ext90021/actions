@@ -16,7 +16,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Build
         run: docker build --no-cache -t ${IMAGE_NAME}:${GITHUB_SHA} -f build/gdp-ansible .
@@ -37,7 +37,7 @@ jobs:
       image: ghcr.io/aquasecurity/trivy
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: tibco-build-${GITHUB_SHA}
           path: /tmp
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: tibco-build-${GITHUB_SHA}
           path: /tmp
