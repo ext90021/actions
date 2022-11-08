@@ -40,8 +40,5 @@ jobs:
           name: tibco-build-${GITHUB_SHA}
           path: /tmp
 
-      - name: Check image
-        run: |
-          ls -al /tmp/
       - name: Check for vulnerabilities
         run: trivy image --no-progress --exit-code 1 --severity CRITICAL -i /tmp/tibco-build.tar
