@@ -1,0 +1,47 @@
+name: Build TDV Build Image
+on:
+  pull_request:
+    branches: ["master"]
+    paths:
+      - ".github/workflows/tibco-ansible.yml"
+      - "build/Dockerfile"
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME: services/gdp-ansible
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build
+        run: docker build --no-cache -t ${IMAGE_NAME}:${GITHUB_SHA} -f build/Dockerfile .
+
+      - name: Save Image as tar
+        run: docker save -o /tmp/tibco-build.tar ${IMAGE_NAME}:${GITHUB_SHA}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: tibco-build-${GITHUB_SHA}
+          path: /tmp/tibco-build.tar
+
+  security-check:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: aquasec/trivy
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: tibco-build-${GITHUB_SHA}
+          path: /tmp
+
+      - name: Check image
+        run: |
+          ls -al /tmp/
+      - name: Check for vulnerabilities
+        run: trivy image --no-progress --exit-code 1 --severity CRITICAL -i /tmp/tibco-build.tar
