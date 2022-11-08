@@ -9,7 +9,7 @@ on:
 
 env:
   IMAGE_NAME: ext90021/gdp-ansible
-  DOCKER_USERNAME: ${{ secrets.DOCKER_USER }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
