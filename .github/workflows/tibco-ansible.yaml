@@ -43,8 +43,14 @@ jobs:
           path: /tmp
 
       - name: Check for vulnerabilities
-        run: trivy image --no-progress --ignore-unfixed --exit-code 1 --severity CRITICAL --input /tmp/tibco-build.tar
+        run: trivy image --format sarif --output 'trivy-results.sarif' --no-progress --ignore-unfixed --exit-code 1 --severity CRITICAL --input /tmp/tibco-build.tar
         
+      - name: Upload Trivy Image scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+          category: 'image'
+          
   push-image:
     needs: security-check
     runs-on: ubuntu-latest
