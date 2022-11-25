@@ -13,8 +13,11 @@ inputs:
   inventory:
     description: Custom content to write into hosts
     required: false
+  config:
+    description: Ansible config file
+    required: false
   vault_config:
-    description: Vault files
+    description: Vault config file
     required: false
   vault_password:
     description: The password used for decrypting vaulted files
