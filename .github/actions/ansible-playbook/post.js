@@ -13,6 +13,7 @@ async function main() {
         const directory = core.getState("directory")
         const keyFile = core.getState("keyFile")
         const inventoryFile = core.getState("inventoryFile")
+        const configFile = core.getState("configFile")
         const vaultConfigFile = core.getState("vaultConfigFile")
         const vaultPasswordFile = core.getState("vaultPasswordFile")
         const knownHostsFile = core.getState("knownHostsFile")
@@ -26,6 +27,9 @@ async function main() {
         if (inventoryFile)
             rm(inventoryFile)
 
+        if (configFile)
+            rm(configFile)
+        
         if (vaultConfigFile)
             rm(vaultConfigFile)
 
