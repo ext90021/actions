@@ -10,6 +10,7 @@ async function main() {
         const playbook = core.getInput("playbook", { required: true })
         const key = core.getInput("key")
         const inventory = core.getInput("inventory")
+        const config = core.getInput("config")
         const vaultConfig = core.getInput("vault_config")
         const vaultPassword = core.getInput("vault_password")
         const knownHosts = core.getInput("known_hosts")
@@ -66,6 +67,17 @@ async function main() {
             cmd.push(inventoryFile)
         }
 
+        if (config) {
+            const configFile = "ansible_config"
+            fs.copyFile(config, configFile, fs.constants.COPYFILE_EXCL, (err) => {
+              if (err) {
+                console.log("Error Found:", err);
+              }
+            })
+            core.saveState("configFile", configFile)
+            cmd.push("-e @"+configFile)
+        }
+        
         if (vaultConfig) {
             const vaultConfigFile = "ansible_vault"
             fs.copyFile(vaultConfig, vaultConfigFile, fs.constants.COPYFILE_EXCL, (err) => {
