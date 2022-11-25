@@ -37,6 +37,7 @@ jobs:
           playbook: tdv/tdv.yml
           inventory: tdv/tdv.ini
           key: tdv/tdv_key.pem
+          config: tdv/tdv_config
           vault_config: tdv/tdv_vault
           vault_password: uUdPrUtn64aJfMSK
           known_hosts: ${{env.SSH_KNOWN_HOSTS}}
